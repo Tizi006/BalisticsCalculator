@@ -1,23 +1,6 @@
 import math
 
 
-# currently useless and untested
-def max_range(shooter, target, power, gravity):
-    # first the height difference
-    x1, y1 = shooter
-    x2, y2 = target
-    dy = y2 - y1
-    if dy < 0:
-        return
-    angle = math.radians(45)
-    cos = math.cos(angle)
-    sin = math.sin(angle)
-    # IDK what value this is
-    possible_max_range = ((power * cos / gravity) *
-                          (power * sin + math.sqrt(power * power * sin * sin + 2 * gravity * dy)))
-    return possible_max_range
-
-
 def solve_ballistic_arc(shooter, target, power, gravity):
     # Shooter and Target coordinates
     x1, y1 = shooter
@@ -26,7 +9,7 @@ def solve_ballistic_arc(shooter, target, power, gravity):
     dx = math.fabs(x2 - x1)
     dy = y1 - y2
     # Distance of vector between shooter and target using Pythagorean theorem
-    # (currently not sure if using this or dx better)
+    # (currently not used, got better results with dx)
     distance = math.sqrt(dx ** 2 + dy ** 2)
 
     # variables for calculation
